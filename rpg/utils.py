@@ -22,7 +22,6 @@ class Cor:
 
     RESET = "\033[0m"
     NEGRITO = "\033[1m"
-    FRACO = "\033[2m"
 
     VERMELHO = "\033[31m"
     VERDE = "\033[32m"
@@ -109,11 +108,6 @@ def titulo(texto: str, largura: int = 68, cor: str = Cor.CIANO_CLARO) -> str:
 def subtitulo(texto: str, largura: int = 68, cor: str = Cor.AMARELO_CLARO) -> str:
     """Cabeçalho mais leve, usado entre rodadas do combate."""
     return colorir(f"\n── {texto} ".ljust(largura + 3, "─"), cor)
-
-
-def limpar_tela() -> None:
-    """Limpa o terminal (cls no Windows, clear no resto)."""
-    os.system("cls" if os.name == "nt" else "clear")
 
 
 def pausa_dramatica(segundos: float) -> None:

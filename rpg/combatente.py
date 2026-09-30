@@ -2,8 +2,8 @@
 """
 Núcleo do sistema de combate: a classe abstrata `Combatente`.
 
-DECISÃO DE ARQUITETURA (importante para a correção)
----------------------------------------------------
+DECISÃO DE ARQUITETURA
+----------------------
 O enunciado pede duas classes-pai: `Personagem` e `Monstro`. Ele também exige
 que *ambas* possuam os sete atributos obrigatórios:
 
@@ -67,8 +67,9 @@ def calcular_dano(poder: int, defesa: int, *, critico: bool = False) -> int:
 
       1. Piso PROPORCIONAL de dano: se a defesa anular o ataque, o golpe ainda
          passa 10% do poder do atacante. Isso resolve um bug real que apareceu
-         no nosso primeiro teste: o Capoeirista (atk 23) contra o Curupira
-         (defense 24) causava 1 de dano por golpe, e o duelo nunca terminava.
+         no nosso primeiro teste: na primeira versão dos atributos, o
+         Capoeirista (atk 23) contra o Curupira (defense 24) causava 1 de dano
+         por golpe, e o duelo nunca terminava.
          Com o piso proporcional, um atacante forte sempre machuca — só que
          muito menos contra quem se defende bem.
       2. Variação de ±15%: o mesmo golpe nunca tira exatamente o mesmo número

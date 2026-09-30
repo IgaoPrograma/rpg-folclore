@@ -308,9 +308,6 @@ class Capoeirista(Personagem):
             classe="Capoeirista",
             descricao="Mestre de roda. Quase nunca é acertado, quase sempre bate duas vezes.",
         )
-        # Guarda se o último golpe recebido foi esquivado. Serve só para a
-        # narração ficar mais rica no log da batalha.
-        self.esquivou_ultimo_golpe = False
 
     @property
     def chance_combo(self) -> float:
@@ -376,10 +373,8 @@ class Capoeirista(Personagem):
         polimorfismo.
         """
         if random.random() < self.chance_esquiva:
-            self.esquivou_ultimo_golpe = True
             return 0
 
-        self.esquivou_ultimo_golpe = False
         # super() aqui chama a implementação original da classe-pai, que faz a
         # subtração de vida de verdade. Estendemos o comportamento, não o
         # substituímos por completo.

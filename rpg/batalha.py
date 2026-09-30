@@ -94,11 +94,11 @@ class Batalha(ABC):
 
     def narrar(self, texto: str = "") -> None:
         """
-        Imprime (se verbose) e guarda no histórico.
+        Imprime (se verbose) e SEMPRE guarda no histórico.
 
-        O histórico existe para permitir rodar uma batalha em silêncio
-        (`verbose=False`) e analisar o resultado depois — foi assim que
-        balanceamos os atributos das classes durante o desenvolvimento.
+        Assim, mesmo rodando em silêncio (`verbose=False`, como faz a
+        ferramenta de balanceamento), o log completo da batalha continua
+        disponível em `batalha.historico` para consulta posterior.
         """
         self.historico.append(texto)
         if self.verbose:

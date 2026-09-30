@@ -125,8 +125,8 @@ def modo_demo(delay: float = 0.0) -> None:
     """
     Roda um 1v1 e um 3v3 do começo ao fim sem pedir nada ao usuário.
 
-    Existe para quem for corrigir o trabalho poder rodar `python main.py --demo`
-    e ver o sistema inteiro funcionando em poucos segundos.
+    Permite rodar `python main.py --demo` e ver o sistema inteiro funcionando
+    em poucos segundos, sem precisar digitar nada.
     """
     escrever(titulo("MODO DEMONSTRAÇÃO", cor=Cor.AMARELO_CLARO))
 

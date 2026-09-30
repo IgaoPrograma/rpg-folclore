@@ -201,8 +201,8 @@ centenas de vezes em silêncio e mede taxa de vitória e duração.
 Ele encontrou quatro problemas reais que jamais apareceriam jogando algumas
 partidas na mão:
 
-1. **Combate infinito.** O Capoeirista (atk 23) contra o Curupira (defense 24)
-   causava 1 de dano por golpe. → Criamos o **piso proporcional de dano**.
+1. **Combate infinito.** Na primeira versão dos atributos, o Capoeirista
+   (atk 23) contra o Curupira (defense 24) causava 1 de dano por golpe. → Criamos o **piso proporcional de dano**.
 2. **Heróis venciam 100% dos 3v3.** Só o time deles tinha curandeira.
    → Criamos a **Iara**, a curandeira do lado dos monstros.
 3. **A Cuca vencia 100% contra Mago e Benzedeira** apenas drenando mana, sem
@@ -285,18 +285,32 @@ linha sequer** do motor de batalha nem das outras nove classes.
 
 ## Exemplo de saída
 
-```
-── RODADA 3 ──────────────────────────────────────────────
+Trecho real de um combate 3v3 (Guardiões do Sertão x Lendas da Noite), rodado
+com `--sem-cor`:
 
-   Besouro usou Armada em Saci-Pererê → -19 de dano físico.
-   Besouro usou Meia-Lua de Compasso (combo!) em Saci-Pererê → -13 de dano físico.
-   Lampião usou Talho de Facão em Curupira → -12 de dano físico.
+```
+── RODADA 2 ──────────────────────────────────────────────────────────
+   Besouro usou Armada em Iara → -26 de dano físico.  ⚡ CRÍTICO!
+   Besouro usou Meia-Lua de Compasso (combo!) em Iara → -5 de dano físico.
+   Iara entoa o Canto das Águas sobre si mesma → +18 de vida.
+   Curupira usou Golpe de Raiz em Lampião → -15 de dano físico.
    Dona Rosa fez uma Reza Forte em Lampião → +38 de vida.
-   Curupira usou Golpe de Raiz em Lampião → -16 de dano físico.
-   Iara entoa o Canto das Águas sobre Boitatá → +36 de vida.
+   Boitatá usou Língua de Fogo em Lampião → -29 de dano mágico.
+   Lampião usou Talho de Facão em Curupira → -9 de dano físico.
 
   Guardiões do Sertão
-   Lampião                [███████████████░░░]  112/135  [▰▰▰▰▰▰▰▰▰▰]   20/20
-   Besouro                [██████████████░░░░]   91/115  [▰▰▰▰▰▰▰▰▰▰]   45/45
-   Dona Rosa              [██████████████████]  120/120  [▰▰▰▰▰▰▰▱▱▱]   78/110
+   Lampião                [█████████░░░░░░░░░]   65/135  [▰▰▰▰▰▰▰▰▰▰]  20/20
+   Besouro                [██████████████████]  115/115  [▰▰▰▰▰▰▰▰▰▰]  45/45
+   Dona Rosa              [██████████████████]  120/120  [▰▰▰▰▰▰▰▰▱▱]  88/110
+
+  Lendas da Noite
+   Curupira               [████████████░░░░░░]   96/140  [▰▰▰▰▰▰▰▰▰▰]  30/30
+   Boitatá                [██████████████████]  115/115  [▰▰▰▰▰▰▰▰▰▰]  90/90
+   Iara                   [███████████░░░░░░░]   70/110  [▰▰▰▰▰▰▰▰▱▱] 102/120
 ```
+
+Repare como a rodada mostra várias mecânicas ao mesmo tempo: a ordem por
+`speed` (Besouro, o mais rápido, age primeiro), o combo e o crítico do
+Capoeirista, a Iara curando a si mesma pela metade (+18 em vez de +36), a
+Benzedeira curando um aliado ferido (+38) e o dano mágico do Boitatá ignorando
+a defesa física do Guerreiro.
